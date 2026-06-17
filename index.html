@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Kairox Digital — Full Service Digital Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#02010e;--s1:#06051a;--card:#0c0b22;--b:#1a183a;
+  --c:#00f5ff;--c2:#0077aa;--p:#b94fff;--g:#f5c400;
+  --w:#dde4ff;--t:#8890b8;--m:#44476a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--t);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;}
+#cv{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:15px 56px;background:rgba(2,1,14,.82);backdrop-filter:blur(22px);border-bottom:1px solid rgba(0,245,255,.07);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;color:var(--w);letter-spacing:.05em;}
+.logo b{color:var(--c);}
+.nl{display:flex;gap:30px;}
+.nl a{color:var(--m);text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:.04em;transition:color .2s;}
+.nl a:hover{color:var(--c);}
+.ncta{background:linear-gradient(135deg,var(--c),var(--c2));color:#000;padding:9px 26px;border-radius:50px;font-weight:700;font-size:.8rem;letter-spacing:.05em;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.ncta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,245,255,.45);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 100px;position:relative;z-index:10;}
+.hbadge{display:inline-flex;align-items:center;gap:9px;background:rgba(0,245,255,.06);border:1px solid rgba(0,245,255,.2);border-radius:100px;padding:8px 22px;font-size:.7rem;font-weight:700;color:var(--c);letter-spacing:.13em;text-transform:uppercase;margin-bottom:38px;}
+.hdot{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 12px var(--c);animation:pulse 1.8s infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(.6);opacity:.3;}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(3.4rem,9.5vw,7.5rem);font-weight:800;line-height:.92;letter-spacing:-.03em;color:var(--w);margin-bottom:28px;}
+.gc{background:linear-gradient(90deg,var(--c),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.gp{background:linear-gradient(90deg,var(--p),#ff6ef7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hsub{font-size:clamp(.95rem,2vw,1.2rem);color:var(--t);max-width:660px;margin:0 auto 50px;line-height:1.8;}
+.hsub span{color:var(--c);font-weight:600;}
+.hbtns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:90px;}
+.bg{background:linear-gradient(135deg,var(--c),var(--c2));color:#000;padding:15px 40px;border-radius:50px;font-weight:700;font-size:.92rem;text-decoration:none;transition:transform .25s,box-shadow .25s;letter-spacing:.03em;}
+.bg:hover{transform:translateY(-4px);box-shadow:0 16px 52px rgba(0,245,255,.5);}
+.bo{border:1.5px solid rgba(0,245,255,.28);color:var(--w);padding:15px 40px;border-radius:50px;font-weight:600;font-size:.92rem;text-decoration:none;transition:all .25s;}
+.bo:hover{border-color:var(--c);color:var(--c);background:rgba(0,245,255,.05);}
+
+/* STATS */
+.sr{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
+.sb{background:rgba(12,11,34,.95);border:1px solid rgba(0,245,255,.13);border-radius:20px;padding:24px 34px;text-align:center;cursor:default;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;}
+.sb:hover{transform:translateY(-10px) perspective(600px) rotateX(8deg);box-shadow:0 24px 60px rgba(0,245,255,.22);}
+.sb::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,245,255,.05),transparent);opacity:0;transition:opacity .3s;}
+.sb:hover::before{opacity:1;}
+.sn{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--w);}
+.sn em{color:var(--c);font-style:normal;}
+.sl{font-size:.68rem;color:var(--m);margin-top:5px;text-transform:uppercase;letter-spacing:.1em;}
+
+/* SECTIONS */
+section{padding:110px 56px;position:relative;z-index:10;}
+.ey{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--c);margin-bottom:8px;}
+.st{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:var(--w);line-height:1.08;margin-bottom:14px;}
+.st em{background:linear-gradient(90deg,var(--c),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;}
+.sd{color:var(--t);font-size:.97rem;line-height:1.78;max-width:540px;}
+.abar{width:46px;height:3px;background:linear-gradient(90deg,var(--c),var(--p));border-radius:3px;margin-bottom:20px;}
+
+/* SERVICES */
+#services{background:linear-gradient(180deg,var(--bg),var(--s1));}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(285px,1fr));gap:22px;margin-top:64px;}
+.sc{background:var(--card);border:1px solid var(--b);border-radius:22px;padding:36px 28px;position:relative;overflow:hidden;cursor:default;}
+.sc-gl{position:absolute;top:-50px;right:-50px;width:170px;height:170px;border-radius:50%;pointer-events:none;transition:opacity .3s;opacity:0;}
+.sc:hover{border-color:rgba(0,245,255,.45);box-shadow:0 28px 70px rgba(0,245,255,.1);}
+.sc:hover .sc-gl{opacity:1;}
+.sc-n{font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;position:absolute;top:14px;right:18px;line-height:1;color:rgba(0,245,255,.05);}
+.sico{width:58px;height:58px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;margin-bottom:24px;position:relative;z-index:1;}
+.sc h3{font-family:'Syne',sans-serif;font-size:1.08rem;font-weight:700;color:var(--w);margin-bottom:11px;}
+.sc p{font-size:.86rem;color:var(--t);line-height:1.72;}
+.stag{display:inline-block;background:rgba(0,245,255,.07);color:var(--c);border:1px solid rgba(0,245,255,.16);border-radius:100px;padding:5px 14px;font-size:.71rem;font-weight:600;margin-top:16px;letter-spacing:.04em;}
+
+/* TEAM FLIP */
+#team{background:var(--s1);}
+.tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:24px;margin-top:64px;}
+.fc{height:370px;perspective:1200px;cursor:pointer;}
+.fi{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.4,0,.2,1);}
+.fc:hover .fi{transform:rotateY(180deg);}
+.ff,.fb{position:absolute;inset:0;border-radius:24px;padding:30px;backface-visibility:hidden;}
+.ff{background:var(--card);border:1px solid var(--b);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.ff-bg{position:absolute;inset:0;pointer-events:none;}
+.fnum{position:absolute;top:18px;right:20px;font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;color:rgba(0,245,255,.04);line-height:1;}
+.femo{font-size:3rem;margin-bottom:16px;display:block;filter:drop-shadow(0 0 20px rgba(0,245,255,.3));}
+.ff h3{font-family:'Syne',sans-serif;font-size:1.18rem;font-weight:800;color:var(--w);margin-bottom:5px;}
+.frole{font-size:.74rem;color:var(--c);font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px;}
+.fhint{font-size:.7rem;color:var(--m);display:flex;align-items:center;gap:6px;}
+.fb{background:linear-gradient(150deg,#0e0d28,#080618);border:1px solid rgba(0,245,255,.3);transform:rotateY(180deg);display:flex;flex-direction:column;}
+.fbl{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c);margin-bottom:8px;margin-top:2px;}
+.fb h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--w);margin-bottom:4px;}
+.fbr{font-size:.71rem;color:var(--p);font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:12px;}
+.fb p{font-size:.82rem;color:#9aa2c4;line-height:1.68;margin-bottom:16px;flex:1;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chip{background:rgba(0,245,255,.07);color:var(--c);border:1px solid rgba(0,245,255,.15);border-radius:100px;padding:3px 11px;font-size:.7rem;font-weight:600;}
+
+/* 3D ROTATING CUBE */
+#webdev{background:linear-gradient(180deg,var(--s1),var(--bg));}
+.wd-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:64px;align-items:center;}
+.scene3d{width:100%;height:360px;perspective:1000px;display:flex;align-items:center;justify-content:center;}
+.cube{width:180px;height:180px;transform-style:preserve-3d;animation:spin 14s linear infinite;}
+@keyframes spin{from{transform:rotateX(20deg) rotateY(0);}to{transform:rotateX(20deg) rotateY(360deg);}}
+.face{position:absolute;width:180px;height:180px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:.07em;border:1.5px solid rgba(0,245,255,.28);}
+.face span{font-size:2rem;margin-bottom:8px;}
+.face-inner{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.face-inner small{font-size:.7rem;font-weight:500;color:var(--t);letter-spacing:.06em;}
+.f1{background:rgba(0,245,255,.06);transform:translateZ(90px);color:var(--c);}
+.f2{background:rgba(185,79,255,.06);transform:rotateY(180deg) translateZ(90px);color:var(--p);}
+.f3{background:rgba(0,245,255,.04);transform:rotateY(90deg) translateZ(90px);color:var(--c);}
+.f4{background:rgba(185,79,255,.04);transform:rotateY(-90deg) translateZ(90px);color:var(--p);}
+.f5{background:rgba(245,196,0,.04);transform:rotateX(90deg) translateZ(90px);color:var(--g);}
+.f6{background:rgba(0,245,255,.03);transform:rotateX(-90deg) translateZ(90px);color:var(--c);}
+.wd-text h2{font-family:'Syne',sans-serif;font-size:2.3rem;font-weight:800;color:var(--w);line-height:1.2;margin-bottom:16px;}
+.wd-text h2 em{background:linear-gradient(90deg,var(--c),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;}
+.wd-text p{color:var(--t);font-size:.95rem;line-height:1.78;margin-bottom:26px;}
+.fl{display:flex;flex-direction:column;gap:13px;}
+.fi2{display:flex;align-items:center;gap:12px;font-size:.88rem;color:var(--w);}
+.fd{width:9px;height:9px;background:var(--c);border-radius:50%;flex-shrink:0;box-shadow:0 0 12px var(--c);}
+
+/* PROCESS */
+#process{background:var(--bg);}
+.pg{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:68px;position:relative;}
+.pl{position:absolute;top:36px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,var(--c),var(--p),transparent);}
+.ps{text-align:center;padding:0 12px;position:relative;z-index:1;}
+.pb{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,rgba(0,245,255,.12),rgba(185,79,255,.07));border:2px solid rgba(0,245,255,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;color:var(--c);transition:transform .3s,box-shadow .3s;}
+.ps:hover .pb{transform:scale(1.18) translateY(-4px);box-shadow:0 0 40px rgba(0,245,255,.4);}
+.ps h4{font-family:'Syne',sans-serif;font-size:.93rem;font-weight:700;color:var(--w);margin-bottom:9px;}
+.ps p{font-size:.8rem;color:var(--t);line-height:1.65;}
+
+/* WHY */
+#why{background:var(--s1);}
+.wg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:56px;}
+.wc{background:var(--card);border:1px solid var(--b);border-radius:17px;padding:28px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s;}
+.wc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--c),var(--p));transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.wc:hover{border-color:rgba(0,245,255,.3);transform:translateY(-6px);}
+.wc:hover::after{transform:scaleX(1);}
+.wi{font-size:1.9rem;margin-bottom:14px;}
+.wc h4{font-family:'Syne',sans-serif;font-size:.97rem;font-weight:700;color:var(--w);margin-bottom:8px;}
+.wc p{font-size:.84rem;color:var(--t);line-height:1.65;}
+
+/* CTA */
+#cta{background:var(--bg);text-align:center;}
+.cb{max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(0,245,255,.06),rgba(185,79,255,.04));border:1px solid rgba(0,245,255,.18);border-radius:30px;padding:80px 52px;position:relative;overflow:hidden;}
+.cb::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(0,245,255,.06),transparent);pointer-events:none;}
+.cb h2{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;color:var(--w);margin-bottom:18px;line-height:1.12;}
+.cb h2 em{background:linear-gradient(90deg,var(--c),var(--p));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal;}
+.cb p{color:var(--t);font-size:1rem;line-height:1.78;max-width:520px;margin:0 auto 40px;}
+.cp{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+.cpill{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.03);border:1px solid var(--b);border-radius:11px;padding:12px 22px;font-size:.86rem;color:var(--t);text-decoration:none;transition:all .2s;}
+.cpill:hover{border-color:var(--c);color:var(--c);}
+
+footer{background:var(--bg);border-top:1px solid var(--b);padding:30px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;position:relative;z-index:10;}
+.fl2{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--w);}
+.fl2 b{color:var(--c);}
+footer p{font-size:.76rem;color:var(--m);}
+
+@media(max-width:900px){
+  nav{padding:14px 20px;} .nl{display:none;}
+  section{padding:72px 20px;}
+  .hero{padding:120px 20px 70px;}
+  .wd-wrap{grid-template-columns:1fr;}
+  .scene3d{height:260px;}
+  .pg{grid-template-columns:1fr 1fr;gap:26px;} .pl{display:none;}
+  .cb{padding:52px 24px;}
+  footer{padding:22px 20px;}
+}
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<nav>
+  <div class="logo">KAIROX<b>X</b> DIGITAL</div>
+  <div class="nl">
+    <a href="#services">Services</a><a href="#team">Team</a>
+    <a href="#webdev">Web & App</a><a href="#process">Process</a><a href="#cta">Contact</a>
+  </div>
+  <a class="ncta" href="#cta">Free Audit →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hbadge"><span class="hdot"></span>Full-Service Digital Agency · Indore</div>
+  <h1>Your Brand's<br><span class="gc">Digital Empire</span><br><span class="gp">Starts Here.</span></h1>
+  <p class="hsub"><span>Meta Ads · Photography · Cinematic Video · Graphic Design</span><br>Social Media Management · Website & App Development</p>
+  <div class="hbtns">
+    <a class="bg" href="#cta">Get Free Audit ✦</a>
+    <a class="bo" href="#services">Explore Services</a>
+  </div>
+  <div class="sr">
+    <div class="sb"><div class="sn">100<em>+</em></div><div class="sl">Brands Scaled</div></div>
+    <div class="sb"><div class="sn">7</div><div class="sl">In-House Experts</div></div>
+    <div class="sb"><div class="sn">3<em>x</em></div><div class="sl">Avg ROAS</div></div>
+    <div class="sb"><div class="sn">360<em>°</em></div><div class="sl">Digital Coverage</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="ey">What We Deliver</div>
+  <div class="abar"></div>
+  <h2 class="st">Everything Your Brand Needs<br>to <em>Dominate Online</em></h2>
+  <p class="sd">Seven services. Seven specialists. All under one roof. Zero outsourcing, zero compromise.</p>
+  <div class="sg">
+    <div class="sc" data-tilt>
+      <div class="sc-gl" style="background:radial-gradient(circle,rgba(0,245,255,.12),transparent)"></div>
+      <div class="sc-n">01</div>
+      <div class="sico" style="background:linear-gradient(135deg,rgba(0,245,255,.15),rgba(0,119,170,.1))">🎯</div>
+      <h3>Meta & Google Ads</h3>
+      <p>Performance campaigns built to smash ROAS targets. Every rupee tracked, A/B tested, and reported with full transparency.</p>
+      <span class="stag">Performance Marketing</span>
+    </div>
+    <div class="sc" data-tilt>
+      <div class="sc-gl" style="background:radial-gradient(circle,rgba(185,79,255,.12),transparent)"></div>
+      <div class="sc-n">02</div>
+      <div class="sico" style="background:linear-gradient(135deg,rgba(185,79,255,.15),rgba(240,171,252,.08))">📸</div>
+      <h3>Photography</h3>
+      <p>Product shoots, brand photography, portraits, and event coverage. Stunning images that sell your brand story.</p>
+      <span class="stag" style="color:var(--p);border-color:rgba(185,79,255,.25);background:rgba(185,79,255,.07)">Visual Branding</span>
+    </div>
+    <div class="sc" data-tilt>
+      <div class="sc-gl" style="background:radial-gradient(circle,rgba(245,196,0,.1),transparent)"></div>
+      <div class="sc-n">03</div>
+      <div class="sico" style="background:linear-gradient(135deg,rgba(245,196,0,.14),rgba(245,196,0,.06))">🎬</div>
+      <h3>Cinematic Videography</h3>
+      <p>Brand films, commercial shoots, reels, and event videography with cinematic-grade quality that elevates your identity.</p>
+      <span class="stag" style="color:var(--g);border-color:rgba(245,196,0,.25);background:rgba(245,196,0,.06)">Cinematic Production</span>
+    </div>
+    <div class="sc" data-tilt>
+      <div class="sc-gl" style="background:radial-gradient(circle,rgba(0,245,255,.1),rgba(185,79,255,.06),transparent)"></div>
+      <div class="sc-n">04</div>
+      <div class="sico" style="background:linear-gradient(135deg,rgba(0,245,255,.12),rgba(185,79,255,.08))">✂️</div>
+      <h3>Video & Photo Editing</h3>
+      <p>Color grading, motion graphics, retouching, transitions — raw footage transformed into polished scroll-stopping content.</p>
+      <span class="stag">Post Production</span>
+    </div>
+    <div class="sc" data-tilt>
+      <div class="sc-gl" style="background:radial-gradient(circle,rgba(185,79,255,.12),transparent)"></div>
+      <div class="sc-n">05</div>
+      <div class="sico" style="background:linear-gradient(135deg,rgba(185,79,255,.14),rgba(240,171,252,.07))">🎨</div>
+      <h3>Graphic Design</h3>
+      <p>Carousels, banners, ad creatives, infographics, brand kits, and packaging — visually consistent, always on-brand.</p>
+      <span class="stag" style="color:var(--p);border-color:rgba(185,79,255,.25);background:rgba(185,79,255,.07)">Creative Design</span>
+    </div>
+    <div class="sc" data-tilt>
+      <div class="sc-gl" style="background:radial-gradient(circle,rgba(0,245,255,.1),transparent)"></div>
+      <div class="sc-n">06</div>
+      <div class="sico" style="background:linear-gradient(135deg,rgba(0,245,255,.12),rgba(0,119,170,.07))">📱</div>
+      <h3>Social Media Management</h3>
+      <p>Full content calendars, daily posting, community management, hashtag strategy, and monthly analytics reports.</p>
+      <span class="stag">Growth & Engagement</span>
+    </div>
+    <div class="sc" data-tilt style="border-color:rgba(245,196,0,.18);">
+      <div class="sc-gl" style="background:radial-gradient(circle,rgba(245,196,0,.1),transparent)"></div>
+      <div class="sc-n">07</div>
+      <div class="sico" style="background:linear-gradient(135deg,rgba(245,196,0,.14),rgba(0,245,255,.07))">💻</div>
+      <h3>Website & App Development</h3>
+      <p>Custom websites, landing pages, and mobile apps built for speed, conversions, and scale — from design to deployment.</p>
+      <span class="stag" style="color:var(--g);border-color:rgba(245,196,0,.25);background:rgba(245,196,0,.06)">Dev & Technology</span>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="ey">The Specialists</div>
+  <div class="abar"></div>
+  <h2 class="st">7 Experts. <em>One Team.</em><br>Zero Outsourcing.</h2>
+  <p class="sd">Every service has a dedicated specialist. Hover any card to see their full skill set.</p>
+  <div class="tg">
+
+    <div class="fc"><div class="fi">
+      <div class="ff">
+        <canvas class="ff-bg" width="260" height="370"></canvas>
+        <div class="fnum">01</div>
+        <span class="femo">🎯</span>
+        <h3>Keshav Besh</h3>
+        <div class="frole">Meta & Google Ads</div>
+        <div class="fhint">↻ Hover to see skills</div>
+      </div>
+      <div class="fb">
+        <div class="fbl">Specialist · Paid Media</div>
+        <h3>Keshav Besh</h3>
+        <div class="fbr">Meta & Google Ads · SMM</div>
+        <p>Manages all paid media campaigns — Meta Ads, Google Ads, audience targeting, and ROAS optimisation. Every rupee spent is tracked and reported.</p>
+        <div class="chips">
+          <span class="chip">Meta Ads</span><span class="chip">Google Ads</span><span class="chip">Lead Gen</span><span class="chip">ROAS</span><span class="chip">Analytics</span><span class="chip">Audience Strategy</span>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="fc"><div class="fi">
+      <div class="ff">
+        <canvas class="ff-bg" width="260" height="370"></canvas>
+        <div class="fnum">02</div>
+        <span class="femo">📸</span>
+        <h3>Divyanshu Onker</h3>
+        <div class="frole">Photographer</div>
+        <div class="fhint">↻ Hover to see skills</div>
+      </div>
+      <div class="fb">
+        <div class="fbl">Specialist · Photography</div>
+        <h3>Divyanshu Onker</h3>
+        <div class="fbr">Brand & Product Photography</div>
+        <p>Expert in product shoots, brand photography, portraits, and event coverage. Captures images that tell your story and convert audiences.</p>
+        <div class="chips">
+          <span class="chip">Product Shoot</span><span class="chip">Brand Photos</span><span class="chip">Portrait</span><span class="chip">Events</span><span class="chip">Lightroom</span><span class="chip">Studio Lighting</span>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="fc"><div class="fi">
+      <div class="ff">
+        <canvas class="ff-bg" width="260" height="370"></canvas>
+        <div class="fnum">03</div>
+        <span class="femo">🎬</span>
+        <h3>Shivam Ghaghre</h3>
+        <div class="frole">Cinematographer & Videographer</div>
+        <div class="fhint">↻ Hover to see skills</div>
+      </div>
+      <div class="fb">
+        <div class="fbl">Specialist · Cinematography</div>
+        <h3>Shivam Ghaghre</h3>
+        <div class="fbr">Cinematic Video · Brand Films</div>
+        <p>Delivers cinematic brand films, commercial shoots, and event videography. Turns creative vision into stunning visual narratives.</p>
+        <div class="chips">
+          <span class="chip">Brand Films</span><span class="chip">Reels</span><span class="chip">Commercial</span><span class="chip">Events</span><span class="chip">Drone</span><span class="chip">Cinematography</span>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="fc"><div class="fi">
+      <div class="ff">
+        <canvas class="ff-bg" width="260" height="370"></canvas>
+        <div class="fnum">04</div>
+        <span class="femo">✂️</span>
+        <h3>Jayant Kushwah</h3>
+        <div class="frole">Video & Photo Editor</div>
+        <div class="fhint">↻ Hover to see skills</div>
+      </div>
+      <div class="fb">
+        <div class="fbl">Specialist · Post Production</div>
+        <h3>Jayant Kushwah</h3>
+        <div class="fbr">Video & Photo Post Production</div>
+        <p>Transforms raw footage and photos into polished, high-retention content. Expert in color grading, motion graphics, and short-form editing.</p>
+        <div class="chips">
+          <span class="chip">Premiere Pro</span><span class="chip">After Effects</span><span class="chip">Lightroom</span><span class="chip">Color Grade</span><span class="chip">Motion GFX</span><span class="chip">Reels</span>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="fc"><div class="fi">
+      <div class="ff">
+        <canvas class="ff-bg" width="260" height="370"></canvas>
+        <div class="fnum">05</div>
+        <span class="femo">🎨</span>
+        <h3>Akshat Tomar</h3>
+        <div class="frole">Graphic Designer</div>
+        <div class="fhint">↻ Hover to see skills</div>
+      </div>
+      <div class="fb">
+        <div class="fbl">Specialist · Creative Design</div>
+        <h3>Akshat Tomar</h3>
+        <div class="fbr">Graphic & Brand Design</div>
+        <p>2+ years, 100+ brands. Ad creatives, Amazon A+ content, carousels, infographics, packaging, and complete brand identity systems.</p>
+        <div class="chips">
+          <span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">Figma</span><span class="chip">Canva</span><span class="chip">Amazon A+</span><span class="chip">Brand Identity</span>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="fc"><div class="fi">
+      <div class="ff">
+        <canvas class="ff-bg" width="260" height="370"></canvas>
+        <div class="fnum">06</div>
+        <span class="femo">📱</span>
+        <h3>Pawan Rajput</h3>
+        <div class="frole">Social Media Manager</div>
+        <div class="fhint">↻ Hover to see skills</div>
+      </div>
+      <div class="fb">
+        <div class="fbl">Specialist · Social Media</div>
+        <h3>Pawan Rajput</h3>
+        <div class="fbr">SMM · Content Strategy · Growth</div>
+        <p>Manages content calendars, daily posting, community engagement, hashtag strategy, and monthly analytics across all platforms.</p>
+        <div class="chips">
+          <span class="chip">Instagram</span><span class="chip">Facebook</span><span class="chip">LinkedIn</span><span class="chip">Content Calendar</span><span class="chip">Analytics</span><span class="chip">Growth</span>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="fc"><div class="fi">
+      <div class="ff">
+        <canvas class="ff-bg" width="260" height="370"></canvas>
+        <div class="fnum">07</div>
+        <span class="femo">💻</span>
+        <h3>Keshav Besh</h3>
+        <div class="frole">Website & App Developer</div>
+        <div class="fhint">↻ Hover to see skills</div>
+      </div>
+      <div class="fb">
+        <div class="fbl">Specialist · Development</div>
+        <h3>Keshav Besh</h3>
+        <div class="fbr">Web & Mobile App Development</div>
+        <p>Builds custom websites, landing pages, and mobile apps from scratch — designed for speed, SEO, and conversion. Mockup to live deployment.</p>
+        <div class="chips">
+          <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Mobile Apps</span><span class="chip">Landing Pages</span><span class="chip">UI/UX</span><span class="chip">E-commerce</span>
+        </div>
+      </div>
+    </div></div>
+
+  </div>
+</section>
+
+<!-- WEB & APP DEV -->
+<section id="webdev">
+  <div class="ey">Website & App Development</div>
+  <div class="abar"></div>
+  <div class="wd-wrap">
+    <div class="scene3d">
+      <div class="cube" id="cube3d">
+        <div class="face f1"><div class="face-inner"><span>🌐</span>WEB<small>Development</small></div></div>
+        <div class="face f2"><div class="face-inner"><span>📱</span>APP<small>Development</small></div></div>
+        <div class="face f3"><div class="face-inner"><span>🎨</span>UI/UX<small>Design</small></div></div>
+        <div class="face f4"><div class="face-inner"><span>🔍</span>SEO<small>Optimised</small></div></div>
+        <div class="face f5"><div class="face-inner"><span>⚡</span>FAST<small>Performance</small></div></div>
+        <div class="face f6"><div class="face-inner"><span>📈</span>SCALE<small>Ready</small></div></div>
+      </div>
+    </div>
+    <div class="wd-text">
+      <h2>Websites & Apps That<br><em>Actually Convert</em></h2>
+      <p>We don't just build websites — we build digital experiences that load fast, rank on Google, and turn every visitor into a potential customer. From single landing pages to full-scale mobile apps.</p>
+      <div class="fl">
+        <div class="fi2"><div class="fd"></div>Custom website design & full development</div>
+        <div class="fi2"><div class="fd"></div>Mobile app development (iOS & Android)</div>
+        <div class="fi2"><div class="fd"></div>Landing pages built for maximum conversion</div>
+        <div class="fi2"><div class="fd"></div>E-commerce stores & online booking systems</div>
+        <div class="fi2"><div class="fd"></div>SEO-ready architecture from day one</div>
+        <div class="fi2"><div class="fd"></div>Post-launch support & maintenance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="ey">How We Work</div>
+  <div class="abar"></div>
+  <h2 class="st">Brief to Results<br>in <em>7 Days</em></h2>
+  <div class="pg">
+    <div class="pl"></div>
+    <div class="ps"><div class="pb">01</div><h4>Free Audit</h4><p>We review your full digital presence and find the biggest growth gaps.</p></div>
+    <div class="ps"><div class="pb">02</div><h4>Strategy</h4><p>Custom roadmap with channels, budget, content plan, and KPIs set upfront.</p></div>
+    <div class="ps"><div class="pb">03</div><h4>Create</h4><p>All assets built in-house. You approve everything before it goes live.</p></div>
+    <div class="ps"><div class="pb">04</div><h4>Launch</h4><p>Go live with full tracking and attribution configured from day one.</p></div>
+    <div class="ps"><div class="pb">05</div><h4>Optimise</h4><p>Weekly reviews, A/B testing, and real monthly performance reports.</p></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="ey">Why Kairox Digital</div>
+  <div class="abar"></div>
+  <h2 class="st">Built Different.<br><em>Delivers Different.</em></h2>
+  <div class="wg">
+    <div class="wc"><div class="wi">🏠</div><h4>100% In-House</h4><p>All 7 specialists are part of the Kairox team. Your brand never gets handed to a stranger.</p></div>
+    <div class="wc"><div class="wi">📊</div><h4>Numbers-First</h4><p>We report ROAS, CPA, and real leads — not likes, reach, or vanity metrics.</p></div>
+    <div class="wc"><div class="wi">⚡</div><h4>Fast Turnaround</h4><p>Creatives delivered in 48 hours. Campaigns live within 7 days of onboarding.</p></div>
+    <div class="wc"><div class="wi">🎬</div><h4>Full Creative Stack</h4><p>Photography, video, design, ads, and development — the complete package in one place.</p></div>
+    <div class="wc"><div class="wi">🤝</div><h4>Transparent Reports</h4><p>Plain-language monthly reports. You always know exactly where every rupee is going.</p></div>
+    <div class="wc"><div class="wi">📍</div><h4>Local & Agile</h4><p>Indore-based. We understand local markets and move fast whenever you need us.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cb">
+    <h2>Ready to Build Your<br><em>Digital Empire?</em></h2>
+    <p>DM us "GROW" for a completely free audit of your digital presence. We'll show you what's broken, what's working, and what we'd fix first — no cost, no commitment.</p>
+    <a class="bg" href="#">Send "GROW" on Instagram →</a>
+    <div class="cp">
+      <a class="cpill" href="#">📸 @kairoxdigital</a>
+      <a class="cpill" href="#">📧 kairoxdigital@gmail.com</a>
+      <a class="cpill" href="#">📍 Indore, Madhya Pradesh</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl2">KAIROX<b>X</b> DIGITAL</div>
+  <p>© 2025 Kairox Digital · 7 Specialists · Full-Service Digital Agency · Indore</p>
+</footer>
+
+<script>
+/* ── PARTICLE BG ── */
+const cv=document.getElementById('cv'),cx=cv.getContext('2d');
+let W,H; function rsz(){W=cv.width=innerWidth;H=cv.height=innerHeight;} rsz();
+window.addEventListener('resize',rsz);
+let mx=W/2,my=H/2;
+window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+const pts=[];
+for(let i=0;i<120;i++) pts.push({
+  x:Math.random()*4000,y:Math.random()*3000,
+  vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,
+  r:Math.random()*1.8+.3,
+  col:Math.random()>.65?'185,79,255':Math.random()>.5?'245,196,0':'0,245,255',
+  a:Math.random()*.45+.1
+});
+function draw(){
+  cx.clearRect(0,0,W,H);
+  cx.strokeStyle='rgba(0,245,255,0.018)';cx.lineWidth=.4;
+  for(let x=0;x<W;x+=70){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke();}
+  for(let y=0;y<H;y+=70){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke();}
+  pts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+    if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    cx.fillStyle=`rgba(${p.col},${p.a})`;cx.fill();
+  });
+  for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+    const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<130){cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);
+      cx.strokeStyle=`rgba(0,245,255,${.055*(1-d/130)})`;cx.lineWidth=.5;cx.stroke();}
+  }
+  const g=cx.createRadialGradient(mx,my,0,mx,my,260);
+  g.addColorStop(0,'rgba(0,245,255,0.055)');g.addColorStop(1,'transparent');
+  cx.fillStyle=g;cx.fillRect(0,0,W,H);
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* ── CARD GLOW ── */
+document.querySelectorAll('.ff-bg').forEach(c2=>{
+  const ctx=c2.getContext('2d');
+  const g2=ctx.createRadialGradient(180,30,0,180,30,130);
+  g2.addColorStop(0,'rgba(0,245,255,0.13)');g2.addColorStop(1,'transparent');
+  ctx.fillStyle=g2;ctx.fillRect(0,0,260,370);
+});
+
+/* ── 3D TILT ON CARDS & STATS ── */
+document.querySelectorAll('.sc,.sb').forEach(el=>{
+  el.addEventListener('mousemove',e=>{
+    const r=el.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    el.style.transform=`perspective(700px) rotateX(${-y*14}deg) rotateY(${x*14}deg) translateY(-8px)`;
+    el.style.boxShadow=`${-x*28}px ${-y*28}px 56px rgba(0,245,255,0.15)`;
+    el.style.borderColor=`rgba(0,245,255,0.5)`;
+  });
+  el.addEventListener('mouseleave',()=>{
+    el.style.transform='';el.style.boxShadow='';el.style.borderColor='';
+  });
+});
+
+/* ── CUBE MOUSE CONTROL ── */
+const cube=document.getElementById('cube3d');
+let cubeX=20,cubeY=0,animPaused=false;
+cube.parentElement.addEventListener('mousemove',e=>{
+  const r=cube.parentElement.getBoundingClientRect();
+  cubeY=(e.clientX-r.left-r.width/2)/r.width*80;
+  cubeX=-(e.clientY-r.top-r.height/2)/r.height*50;
+  cube.style.animation='none';
+  cube.style.transform=`rotateX(${cubeX}deg) rotateY(${cubeY}deg)`;
+});
+cube.parentElement.addEventListener('mouseleave',()=>{
+  cube.style.animation='spin 14s linear infinite';
+  cube.style.transform='';
+});
+
+/* ── SCROLL REVEAL ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0) scale(1)';
+    }
+  });
+},{threshold:.07});
+document.querySelectorAll('.sc,.fc,.wc,.ps,.sb').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(32px) scale(0.96)';
+  el.style.transition='opacity .6s ease,transform .6s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
